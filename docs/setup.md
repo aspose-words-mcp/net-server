@@ -18,7 +18,7 @@ Both `ADCS_PRODUCT_PLUGIN_CATALOG` and `ADCS_RETRIEVAL_PLUGIN_CATALOG` are set b
 
 The helpers run host Python environments; this repository does not include a complete product-specific container composition. Provision or mount the deployment catalog, plugin manifest/profile, plugin interpreter, source repositories, and Gist cache at paths visible inside the relevant containers. Preserve the catalog's relative `../plugins/words-net/plugin.json` relationship or use a deployment-specific catalog with correct container paths.
 
-**TODO_CONTAINER_DEPLOYMENT_EXAMPLE**: add a validated product-specific Compose/Helm composition if one is published. Do not assume the engine's empty-catalog image already includes this plugin.
+A ready-to-run product-specific Compose/Helm composition is not included in this release. Use the host-Python setup above with configured backing services, or prepare and validate your own container mounts and images. The engine’s empty-catalog image does not include this plugin.
 
 ## Verify serving
 

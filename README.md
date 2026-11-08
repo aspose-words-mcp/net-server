@@ -15,7 +15,7 @@ Publication organization: [aspose-words-mcp](https://github.com/aspose-words-mcp
 | net-server | Words/.NET server deployment composition | [aspose-words-mcp/net-server](https://github.com/aspose-words-mcp/net-server) |
 | context-engine | Shared runtime, ingestion, storage, and retrieval | [aspose-core-mcp/context-engine](https://github.com/aspose-core-mcp/context-engine) |
 | net-plugin | Words/.NET extraction and retrieval profile | [aspose-words-mcp/net-plugin](https://github.com/aspose-words-mcp/net-plugin) |
-| net-copilot-client-agent | GitHub Copilot client and custom agent | **TODO_COPILOT_CLIENT_PUBLIC_REPOSITORY_URL** |
+| net-copilot-client-agent | GitHub Copilot client and custom agent | [aspose-words-mcp/net-copilot-client-agent](https://github.com/aspose-words-mcp/net-copilot-client-agent) |
 
 ## Get the server
 
