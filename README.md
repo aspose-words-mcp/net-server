@@ -8,14 +8,14 @@ This repository supplies a pinned engine/plugin composition, its catalog, and se
 
 ## Project family
 
-Publication organization: [aspose-words-mcp](https://github.com/aspose-words-mcp).
+These repositories work together to provide documentation-backed MCP services and a GitHub Copilot client for Aspose.Words for .NET. The shared engine is maintained under **aspose-core-mcp**; the Words/.NET components are maintained under **aspose-words-mcp**.
 
-| Repository | Role | Public location |
-| --- | --- | --- |
-| net-server | Words/.NET server deployment composition | [aspose-words-mcp/net-server](https://github.com/aspose-words-mcp/net-server) |
-| context-engine | Shared runtime, ingestion, storage, and retrieval | [aspose-core-mcp/context-engine](https://github.com/aspose-core-mcp/context-engine) |
-| net-plugin | Words/.NET extraction and retrieval profile | [aspose-words-mcp/net-plugin](https://github.com/aspose-words-mcp/net-plugin) |
-| net-copilot-client-agent | GitHub Copilot client and custom agent | [aspose-words-mcp/net-copilot-client-agent](https://github.com/aspose-words-mcp/net-copilot-client-agent) |
+| Repository | Responsibility |
+| --- | --- |
+| [context-engine](https://github.com/aspose-core-mcp/context-engine) | Shared documentation ingestion, indexing, retrieval, and MCP infrastructure |
+| [net-plugin](https://github.com/aspose-words-mcp/net-plugin) | Aspose.Words for .NET documentation/API extraction and retrieval configuration |
+| [net-server](https://github.com/aspose-words-mcp/net-server) **(this repository)** | Deployment helpers that combine pinned engine and plugin versions |
+| [net-copilot-client-agent](https://github.com/aspose-words-mcp/net-copilot-client-agent) | GitHub Copilot agent, C# compilation checks, and example-answer showcase |
 
 ## Get the server
 
