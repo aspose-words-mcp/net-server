@@ -1,0 +1,43 @@
+name: Deployment checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  configuration:
+    runs-on: ubuntu-latest
+    outputs:
+      ready: ${{ steps.components.outputs.ready }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check shell syntax and catalog
+        run: |
+          for script in scripts/*.sh; do sh -n "$script"; done
+          python -m json.tool config/product-platform-plugins.json > /dev/null
+      - id: components
+        name: Check component URL placeholders
+        run: |
+          if grep -q TODO_ .gitmodules; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Component URLs are pending; registration checks will be skipped."
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+  registration:
+    needs: configuration
+    if: needs.configuration.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: ./scripts/setup.sh
+      - name: Plugin regression suite
+        working-directory: plugins/words-net
+        env:
+          PYTHONPATH: src
+        run: .venv/bin/python -m unittest discover -s tests -v

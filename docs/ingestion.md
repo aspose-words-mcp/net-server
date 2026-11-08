@@ -1,0 +1,52 @@
+# Prepare sources and publish content
+
+Run from the deployment repository root after setup. Source URLs, branches, and prefixes are defined by `plugins/words-net/plugin.json`; keep this manifest authoritative when updating component pins.
+
+With the currently pinned plugin:
+
+```sh
+mkdir -p engine/sources
+git clone --filter=blob:none --sparse --branch master https://github.com/sabir-aspose/words-docs-com.git engine/sources/documentation-current
+git -C engine/sources/documentation-current sparse-checkout set en/net
+git clone --filter=blob:none --sparse --branch main https://github.com/aspose-words/Aspose.Words-API-References.git engine/sources/api-reference
+git -C engine/sources/api-reference sparse-checkout set english/net
+```
+
+The documentation repository is the fork configured by the existing plugin. If its public-release manifest changes, update these commands to match. Record both source commits and ensure the source working trees are clean before ingestion.
+
+## Prepare external examples
+
+```sh
+PYTHONPATH=plugins/words-net/src plugins/words-net/.venv/bin/python \
+  -m adcs_words_net.gist_examples \
+  --source-root engine/sources/documentation-current/en/net \
+  --cache plugins/words-net/sources/gist-examples.json
+```
+
+This network step prepares pinned Gist examples. The cache belongs beside the plugin, while source repositories belong under the `engine/` ingestion workspace. Retain cache provenance with publication records. Extraction uses the cache offline; do not run concurrent cache preparation against the same file.
+
+## Validate
+
+```sh
+./scripts/ingest.sh --source-kind docs
+./scripts/ingest.sh --source-kind apiref
+```
+
+Validation may write operation metadata but does not publish indexed content. `--stage` writes review staging. Configure runtime stores and embeddings before publication.
+
+## Publish explicitly
+
+After reviewing validation results:
+
+```sh
+./scripts/ingest.sh --source-kind docs --publish
+./scripts/ingest.sh --source-kind apiref --publish
+```
+
+Use `--enqueue` with an active worker for durable queued jobs. Read an operation using:
+
+```sh
+./scripts/run-engine.sh -m adcs.plugins.cli --workspace "$PWD/engine" --job-status YOUR_OPERATION_ID
+```
+
+Source content, caches, credentials, and generated runtime data must not be committed. Verify actual documentation citations and API symbols through the deployed server after publication.

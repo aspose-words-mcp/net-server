@@ -1,0 +1,6 @@
+{
+  "plugins": [
+    "../plugins/words-net/plugin.json"
+  ],
+  "compositions": []
+}
