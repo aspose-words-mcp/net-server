@@ -6,9 +6,9 @@ With the currently pinned plugin:
 
 ```sh
 mkdir -p engine/sources
-git clone --filter=blob:none --sparse --branch master https://github.com/sabir-aspose/words-docs-com.git engine/sources/documentation-current
+git clone --filter=blob:none --sparse --branch master https://github.com/aspose-words-mcp/docs.git engine/sources/documentation-current
 git -C engine/sources/documentation-current sparse-checkout set en/net
-git clone --filter=blob:none --sparse --branch main https://github.com/aspose-words/Aspose.Words-API-References.git engine/sources/api-reference
+git clone --filter=blob:none --sparse --branch main https://github.com/aspose-words-mcp/reference.git engine/sources/api-reference
 git -C engine/sources/api-reference sparse-checkout set english/net
 ```
 
