@@ -15,7 +15,7 @@ These repositories work together to provide documentation-backed MCP services an
 | [context-engine](https://github.com/aspose-core-mcp/context-engine) | Shared documentation ingestion, indexing, retrieval, and MCP infrastructure |
 | [net-plugin](https://github.com/aspose-words-mcp/net-plugin) | Aspose.Words for .NET documentation/API extraction and retrieval configuration |
 | [net-server](https://github.com/aspose-words-mcp/net-server) **(this repository)** | Deployment helpers that combine pinned engine and plugin versions |
-| [net-copilot-client-agent](https://github.com/aspose-words-mcp/net-copilot-client-agent) | GitHub Copilot agent, C# compilation checks, and example-answer showcase |
+| [net-client-copilot-agent](https://github.com/aspose-words-mcp/net-client-copilot-agent) | GitHub Copilot agent, C# compilation checks, and example-answer showcase |
 
 ## Get the server
 

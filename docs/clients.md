@@ -4,7 +4,7 @@ The Words/.NET endpoint is `/words/net/mcp/v1/streamable-http`. For the local la
 
 ## GitHub Copilot in VS Code
 
-[aspose-words-mcp/net-copilot-client-agent](https://github.com/aspose-words-mcp/net-copilot-client-agent) — includes the custom Aspose.Words agent, build rules, and isolated .NET 10 compilation checks against Aspose.Words 26.10.0. Install the .NET 10 SDK and allow the required edit/terminal tools to use those checks. Compilation checks do not execute generated examples.
+[aspose-words-mcp/net-client-copilot-agent](https://github.com/aspose-words-mcp/net-client-copilot-agent) — includes the custom Aspose.Words agent, build rules, and isolated .NET 10 compilation checks against Aspose.Words 26.10.0. Install the .NET 10 SDK and allow the required edit/terminal tools to use those checks. Compilation checks do not execute generated examples.
 
 A VS Code workspace `.vscode/mcp.json` server entry has this shape:
 

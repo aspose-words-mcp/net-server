@@ -14,7 +14,7 @@ GitHub Actions checks shell syntax and configuration, then installs the pinned e
 
 - [Context engine](https://github.com/aspose-core-mcp/context-engine)
 - [Words/.NET plugin](https://github.com/aspose-words-mcp/net-plugin)
-- [Copilot client agent](https://github.com/aspose-words-mcp/net-copilot-client-agent)
+- [Copilot client agent](https://github.com/aspose-words-mcp/net-client-copilot-agent)
 
 See [setup](setup.md#container-deployment) for the current container deployment boundary. A product-specific container composition is not bundled.
 
